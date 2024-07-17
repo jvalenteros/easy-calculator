@@ -13,6 +13,7 @@
     --operator-color: white;
     --switch-bg: #e9e9ea;
     --switch-knob: #ffffff;
+    --github-color: #333333;
 }
 
 /* dark mode */
@@ -26,6 +27,7 @@
     --operator-color: white;
     --switch-bg: #39393d;
     --switch-knob: #ffffff;
+    --github-color: #f0f0f0;
 }
 
 /* styles */
@@ -148,16 +150,19 @@ input:checked + .slider:before {
 
 /* credits */
 
-.credits {
+.github-link {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    font-size: 12px;
-    color: var(--credits-color);
-    opacity: 0.35;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.6;
     transition: opacity 0.3s ease;
 }
 
-.credits:hover {
+.github-link:hover {
     opacity: 1;
+}
+
+.github-logo {
+    fill: var(--github-color);
+    transition: fill 0.3s ease;
 }

@@ -1,4 +1,5 @@
 // js\script.js
+// Author: [Johann Valenteros](https://github.com/johannvalenteros)
 const display = document.getElementById('display');
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 
@@ -36,4 +37,29 @@ darkModeToggle.addEventListener('change', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-// keyboard support
+// keyboard support functionality
+/**
+ * event listeners for keydown events
+ * also added additions of key values to the display, calculation,
+ * backspacing, clearing display, and toggling the sign of the display value
+ */
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+
+    // if the key is a number, operator, decimal, or percentage sign, add to the display
+    if (/[0-9.+\-*/%]/.test(key)) {
+        addToDisplay(key);
+    
+    } else if (key === 'Enter') {
+        calculate();
+    
+    } else if (key === 'Backspace') {
+        backspace();
+    
+    } else if (key === 'Escape') {
+        clearDisplay();
+    
+    } else if (key === '+/-') {
+        toggleSign();
+    }
+})

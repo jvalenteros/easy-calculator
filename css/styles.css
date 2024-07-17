@@ -1,0 +1,147 @@
+/*
+    apple-aesthetic stylesheet for easy-calculator
+    Author: [Johann Valenteros](https://github.com/johannvalenteros)
+*/
+
+:root {
+    --bg-color: #f0f0f0;
+    --calc-bg: rgba(255, 255, 255, 0.7);
+    --btn-bg: rgba(255, 255, 255, 0.5);
+    --btn-color: #333;
+    --display-color: #333;
+    --operator-bg: #ff9f0a;
+    --operator-color: white;
+    --switch-bg: #e9e9ea;
+    --switch-knob: #ffffff;
+}
+
+/* dark mode */
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --calc-bg: rgba(30, 30, 30, 0.7);
+    --btn-bg: rgba(60, 60, 60, 0.5);
+    --btn-color: #f0f0f0;
+    --display-color: #f0f0f0;
+    --operator-bg: #ff9f0a;
+    --operator-color: white;
+    --switch-bg: #39393d;
+    --switch-knob: #ffffff;
+}
+
+/* styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+
+/* calculator */
+.calculator {
+    background: var(--calc-bg);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 300px;
+}
+
+.display {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: transparent;
+    border: none;
+    color: var(--display-color);
+    font-size: 48px;
+    text-align: right;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-weight: 300;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: var(--btn-bg);
+    border: none;
+    border-radius: 50%;
+    color: var(--btn-color);
+    cursor: pointer;
+    font-size: 24px;
+    height: 60px;
+    width: 60px;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.operator {
+    background: var(--operator-bg);
+    color: var(--operator-color);
+    font-weight: 500;
+}
+
+.switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 51px;
+    height: 31px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* toggle slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-bg);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 27px;
+    width: 27px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--switch-knob);
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+    background-color: #34c759;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}

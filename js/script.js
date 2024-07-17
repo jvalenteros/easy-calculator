@@ -1,3 +1,4 @@
+// js\script.js
 const display = document.getElementById('display');
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 

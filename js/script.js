@@ -16,9 +16,21 @@ function clearDisplay() {
 // calculates the value of the display and displays the result
 function calculate() {
     try {
-        display.value = eval(display.value);
+        // Check for division by zero
+        if (display.value.includes('/0')) {
+            throw new Error("Cannot divide by zero");
+        }
+        
+        let result = eval(display.value);
+        
+        // Check if the result is infinity (which can happen with very large numbers)
+        if (!isFinite(result)) {
+            throw new Error("Result is too large");
+        }
+        
+        display.value = result;
     } catch (error) {
-        display.value = 'Error';
+        display.value = error.message;
     }
 }
 
@@ -28,6 +40,8 @@ function toggleSign() {
         display.value = -parseFloat(display.value);
     }
 }
+
+
 
 function backspace() {
     display.value = display.value.slice(0, -1);

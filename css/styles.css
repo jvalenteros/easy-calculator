@@ -14,6 +14,7 @@
     --switch-bg: #e9e9ea;
     --switch-knob: #ffffff;
     --github-color: #333333;
+    --error-color: #ff3b30;
 }
 
 /* dark mode */
@@ -28,7 +29,9 @@
     --switch-bg: #39393d;
     --switch-knob: #ffffff;
     --github-color: #f0f0f0;
+    --error-color: #ff453a;
 }
+
 
 /* styles */
 body {
@@ -53,17 +56,27 @@ body {
     width: 300px;
 }
 
+
 .display {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: transparent;
     border: none;
     color: var(--display-color);
-    font-size: 48px;
+    font-size: 30px;
     text-align: right;
     width: 100%;
     margin-bottom: 20px;
     padding: 10px;
     font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.display[value^="Cannot divide by zero"],
+.display[value^="Result is too large"] {
+    font-size: 24px;
+    color: var(--error-color);
 }
 
 .buttons {
